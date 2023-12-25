@@ -24,21 +24,171 @@ function App() {
   const FadeUp = batch(Fade(), Move(), Sticky());
   return (
     <ScrollContainer>
-      <ScrollPage page={0}>
-        <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
-          <span style={{ fontSize: "30px" }}>
-            Let me show you scroll animation 😀
+      <div class="parallax">
+        <div class="parallax-background"></div>
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+          <ScrollPage page={0}>
+            <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
+              <div className="content">
+                <span style={{ fontSize: "70px" }}>🔒</span>
+                <span
+                  style={{
+                    fontSize: "40px",
+                    margin: "16px 0px",
+                    fontWeight: 500,
+                  }}
+                >
+                  Contenuto bloccato.
+                </span>
+                <span
+                  style={{
+                    fontSize: "20px",
+                    lineHeight: "30px",
+                    fontWeight: 400,
+                  }}
+                >
+                  Psst...scrolla piano la pagina
+                </span>
+                <span style={{ fontSize: "50px" }}>😉</span>
+              </div>
+            </Animator>
+          </ScrollPage>
+        </div>
+      </div>
+      <ScrollPage page={2}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "40px",
+              padding: "1em",
+              color: "#131200",
+              textAlign: "center",
+            }}
+          >
+            <Animator animation={MoveIn(1000, 0)}>
+              Quindi vuoi conoscere la destinazione?
+              <span style={{ fontSize: "100px" }}>🙋🏻‍♀️</span>
+            </Animator>
           </span>
-        </Animator>
+        </div>
+      </ScrollPage>
+      <ScrollPage page={3}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+            background: "#296EB4",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "40px",
+              padding: "1em",
+              color: "white",
+              textAlign: "center",
+            }}
+          >
+            <Animator animation={MoveIn(1000, 0)}>
+              Veramente? <span style={{ fontSize: "100px" }}>🧐</span>
+            </Animator>
+          </span>
+        </div>
+      </ScrollPage>
+      <ScrollPage page={3}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+            background: "#D7AF70",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "40px",
+              padding: "1em",
+              color: "white",
+              textAlign: "center",
+            }}
+          >
+            <Animator animation={MoveIn(1000, 0)}>
+              Sicura sicura? <span style={{ fontSize: "100px" }}>😡</span>
+            </Animator>
+          </span>
+        </div>
+      </ScrollPage>
+      <ScrollPage page={3}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+            background: "#8F250C",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "40px",
+              padding: "1em",
+              color: "white",
+              textAlign: "center",
+            }}
+          >
+            <Animator animation={MoveIn(1000, 0)}>
+              <div
+                style={{
+                  flexDirection: "column",
+                  display: "flex",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                Ooook <span style={{ fontSize: "120px" }}>🤗</span>
+              </div>
+            </Animator>
+          </span>
+        </div>
       </ScrollPage>
       <ScrollPage page={1}>
-        <Animator animation={ZoomInScrollOut}>
-          <span style={{ fontSize: "40px" }}>I'm FadeUpScrollOut ✨</span>
-        </Animator>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "50%",
+            background: "#fff",
+          }}
+        >
+          <Animator animation={ZoomInScrollOut}>
+            <img src="./andalucia.svg" width={"250px"} />
+          </Animator>
+        </div>
       </ScrollPage>
       <ScrollPage>
         <Animator animation={FadeUp}>
-          <span style={{ fontSize: "40px" }}>I'm FadeUp ⛅️</span>
+          <span
+            style={{
+              fontSize: "50px",
+              display: "flex",
+              aligItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            AAAAAAHHH 🤩🤩
+          </span>
         </Animator>
       </ScrollPage>
       <ScrollPage page={2}>
@@ -59,6 +209,7 @@ function App() {
           </span>
         </div>
       </ScrollPage>
+
       <ScrollPage page={3}>
         <div className="section-3">
           <h2>

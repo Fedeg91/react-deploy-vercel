@@ -1,10 +1,67 @@
-.section-3{
-  background:blue;
-  display:flex;
+.section-3 {
+  background: blue;
+  display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height:100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-color: #cccccc;
+  background-size: cover;
 }
-*{margin:0;
-padding:0}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.parallax {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  font-size: 2em;
+  overflow: hidden;
+}
+
+.parallax-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../public//Siviglia/Siviglia_6.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity:0.65;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.parallax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+/*   background: rgba(0, 0, 0, 0.25);
+ */  filter: saturate(10%); 
+}
+
+.content {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 5em;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  color:#131200;
+}
