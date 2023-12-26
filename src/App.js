@@ -83,7 +83,7 @@ function App() {
                   textAlign: "center",
                 }}
               >
-                Quindi vuoi conoscere la destinazione?
+                Quindi vuoi sapere di che si tratta?
                 <span style={{ fontSize: "70px" }}>🙋🏻‍♀️</span>
               </div>
             </Animator>
@@ -256,6 +256,7 @@ function App() {
                 textAlign: "center",
               }}
             >
+              <h2 style={{ marginBottom: "20px" }}>Hai vinto un viaggio!</h2>
               Guarda l'itinerario ✈️<span> 💛💛💛</span>
             </div>
           </span>
@@ -263,44 +264,35 @@ function App() {
       </div>
 
       <ScrollPage page={8}>
-        <div className="section-alhambra">
+        <div className="section-alhambra" style={{ height: "100vh" }}>
           <Animator animation={MoveIn(-1000, 0)}>
-            <h3>Day 1</h3>
+            <h2>Day 1</h2>
           </Animator>
           <Animator animation={MoveIn(1000, 0)}>
             <h1>Granada</h1>
-            <p style={{ fontSize: "24px" }}>Visita della città e Albaizin</p>
+            <p style={{ fontSize: "24px" }}>Visita della città e Albayzín</p>
           </Animator>
-        </div>
-      </ScrollPage>
-      <ScrollPage page={9}>
-        <div className="section-alhambra">
           <Animator animation={MoveIn(-1000, 0)}>
-            <h2>Day 2</h2>
+            <h2 style={{ marginTop: 70 }}>Day 2</h2>
           </Animator>
           <Animator animation={MoveIn(1000, 0)}>
             <h1>Alhambra</h1>
-            <p style={{ fontSize: "24px" }}>Visita del castello</p>
           </Animator>
         </div>
       </ScrollPage>
-      <ScrollPage page={10}>
+      <ScrollPage page={10} style={{ height: "100vh" }}>
         <div className="section-cordoba">
           <Animator animation={MoveIn(-1000, 0)}>
-            <h3>Day 3</h3>
+            <h2>Day 3</h2>
           </Animator>
           <Animator animation={MoveIn(1000, 0)}>
             <h1>Cordoba</h1>
             <p style={{ fontSize: "24px" }}>
-              Visita della Mezquita e della juderia
+              Visita della città e della juderia
             </p>
           </Animator>
-        </div>
-      </ScrollPage>
-      <ScrollPage page={11}>
-        <div className="section-cordoba">
           <Animator animation={MoveIn(-1000, 0)}>
-            <h2>Day 4</h2>
+            <h2 style={{ marginTop: 70 }}>Day 4</h2>
           </Animator>
           <Animator animation={MoveIn(1000, 0)}>
             <h1>Mezquita</h1>
@@ -311,26 +303,22 @@ function App() {
         </div>
       </ScrollPage>
       <ScrollPage page={10}>
-        <div className="section-sevilla">
+        <div className="section-sevilla" style={{ height: "100vh" }}>
           <Animator animation={MoveIn(-1000, 0)}>
             <h3>Day 5</h3>
           </Animator>
           <Animator animation={MoveIn(1000, 0)}>
-            <h1>Alcazer</h1>
+            <h1>Alcazar</h1>
             <p style={{ fontSize: "24px" }}>
-              Visita della città e dell'Alcazer
+              Visita della città e dell'Alcazar
             </p>
           </Animator>
-        </div>
-      </ScrollPage>
-      <ScrollPage page={11}>
-        <div className="section-sevilla">
           <Animator animation={MoveIn(-1000, 0)}>
-            <h2>Day 6</h2>
+            <h2 style={{ marginTop: 70 }}>Day 6</h2>
           </Animator>
           <Animator animation={MoveIn(1000, 0)}>
             <h1>Sevilla</h1>
-            <p style={{ fontSize: "24px" }}>giro e città e adios espana</p>
+            <p style={{ fontSize: "24px" }}>Giro città e adios espana 😢 😭</p>
           </Animator>
         </div>
       </ScrollPage>
@@ -357,7 +345,7 @@ function App() {
           }}
         >
           <span style={{ fontSize: "50px" }}>🎅🏻</span>OH-OH-OH !
-          <button className="button">Scarica il biglietto qui</button>
+          <span>Tanti auguri! ❤️❤️</span>
         </div>
       </div>
     </ScrollContainer>
