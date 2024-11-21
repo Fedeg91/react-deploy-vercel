@@ -15,17 +15,18 @@ const generateCSV = (formData) => {
   ];
   const ws = XLSX.utils.aoa_to_sheet(data);
   const csv = XLSX.utils.sheet_to_csv(ws);
-  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const blob = new Blob([csv], { type: "text/csv;" });
+  const file = new File([blob], "data.csv", { type: "text/csv;" });
   const url = URL.createObjectURL(blob);
-  return { blob, url };
+  return { file, url };
 };
 
 const uploadToServiceNow = (file) => {
   const formData = new FormData();
   formData.append("table_name", "incident");
   formData.append("table_sys_id", sysID);
+  formData.append("file_name", file);
   formData.append("file", file);
-
   const headers = new Headers();
   headers.append("Authorization", "Basic " + btoa(`${username}:${password}`));
   headers.append("Content-Type", "multipart/form-data");
