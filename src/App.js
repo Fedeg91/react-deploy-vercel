@@ -4,32 +4,21 @@ import * as XLSX from "xlsx";
 const instanceUrl = process.env.REACT_APP_SN_INSTANCE;
 const username = process.env.REACT_APP_SN_USERNAME;
 const password = process.env.REACT_APP_SN_PASSWORD;
-const sysID = '7e53f232974bb158d090f6d3f153afe6';
+const sysID = "7e53f232974bb158d090f6d3f153afe6";
 
-console.log(instanceUrl, " jjj  ", sysID);
-
-const generateCSV = (formData) => {
-  const data = [
-    ["Name", "ID", "AWS ID"],
-    [formData.name, formData.id, formData.awsID],
-  ];
-  const ws = XLSX.utils.aoa_to_sheet(data);
-  const csv = XLSX.utils.sheet_to_csv(ws);
-  const blob = new Blob([csv], { type: "text/csv;" });
-  const file = new File([blob], "data.csv", { type: "text/csv;" });
-  const url = URL.createObjectURL(blob);
-  return { file, url };
-};
-
-const uploadToServiceNow = (file) => {
+const uploadToServiceNow = (blob) => {
   const formData = new FormData();
   formData.append("table_name", "incident");
   formData.append("table_sys_id", sysID);
-  formData.append("file_name", file);
-  formData.append("file", file);
+
+  const fileToUpload = new File([blob], "formData.csv", {
+    type: "text/csv;charset=utf-8;",
+  });
+  formData.append("file", fileToUpload);
+
   const headers = new Headers();
   headers.append("Authorization", "Basic " + btoa(`${username}:${password}`));
-  headers.append("Content-Type", "multipart/form-data");
+  headers.append("Accept", "application/json");
 
   const requestOptions = {
     method: "POST",
@@ -41,11 +30,26 @@ const uploadToServiceNow = (file) => {
   fetch(`${instanceUrl}/api/now/attachment/upload`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
-      console.log("File caricato con successo:", data);
+      console.log("File:", data);
     })
     .catch((error) => {
-      console.error("Errore durante il caricamento del file:", error);
+      console.error("Error file:", error);
     });
+};
+
+const generateCSV = (formData) => {
+  const data = [
+    ["Name", "ID", "AWS ID"],
+    [formData.name, formData.id, formData.awsID],
+  ];
+  const ws = XLSX.utils.aoa_to_sheet(data);
+  const csv = XLSX.utils.sheet_to_csv(ws);
+
+  console.log("CSV Content:", csv);
+
+  const blob = new Blob([csv], { type: "text/csv;" });
+  const url = URL.createObjectURL(blob);
+  return { blob, url };
 };
 
 const App = () => {
